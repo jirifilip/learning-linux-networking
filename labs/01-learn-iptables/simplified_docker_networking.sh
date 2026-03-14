@@ -35,3 +35,10 @@ iptables -A FORWARD -i veth_host -o eth0 -j ACCEPT
 
 # Verify we can reach internet through namespace
 ip netns exec simple-docker ping 8.8.8.8
+
+# Monitor traffic on the veth
+tcpdump -i veth_host
+
+# Monitoring traffic on eth0 to see the NATed traffic
+tcpdump -i eth0
+
