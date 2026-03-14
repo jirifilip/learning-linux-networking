@@ -1,3 +1,6 @@
+# Simple flannel-like networking
+
+
 # Create two instances using multipass
 multipass launch -n simple-k8s-1 --network Wi-Fi
 multipass launch -n simple-k8s-2 --network Wi-Fi
@@ -56,3 +59,8 @@ ip netns exec container1 python3 -m http.server
 
 # on simple-k8s-2
 ip netns exec container2 curl 10.3.1.2:8000
+
+
+# Stop VMs
+multipass stop simple-k8s-1
+multipass stop simple-k8s-2
